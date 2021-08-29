@@ -1,21 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import ScreenView from './view/ScreenView'
+import KeyboardView from './view/KeyboardView'
+import MainStyle from './style/MainStyle'
 
 export default function App() {
+  const [currency1, setCurrency_1] = useState('0');
+  const setCurrency1 = (value) => setCurrency_1( value );
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={MainStyle.container}>
+      <ScreenView currency1={ currency1 } />
+      <KeyboardView 
+      currency1={ currency1 } 
+      setCurrency1={ setCurrency1 } 
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
